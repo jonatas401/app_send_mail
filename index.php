@@ -4,7 +4,7 @@
     	<title>App Mail Send</title>
 
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+		<script src="alert.js" defer></script>
 	</head> 
 
 	<body>
@@ -24,20 +24,22 @@
 						<form action="processo_envio.php" method="POST">
 							<div class="form-group">
 								<label for="para">Para</label>
-								<input name="destino" type="text" class="form-control" id="para" placeholder="exemplo@dominio.com.br">
+								<input name="destino" type="email" class="form-control" id="para" placeholder="exemplo@dominio.com.br" required>
 							</div>
 
 							<div class="form-group">
 								<label for="assunto">Assunto</label>
-								<input name="assunto" type="text" class="form-control" id="assunto" placeholder="Assundo do e-mail">
+								<input name="assunto" type="text" class="form-control" id="assunto" placeholder="Assundo do e-mail" required>
 							</div>
 
 							<div class="form-group">
 								<label for="mensagem">Mensagem</label>
-								<textarea name="mensagem" class="form-control" id="mensagem"></textarea>
+								<textarea name="mensagem" class="form-control" id="mensagem"></textarea required>
 							</div>
+							
 
-							<button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
+							<button  type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
+						
 						</form>
 					</div>
 				</div>
