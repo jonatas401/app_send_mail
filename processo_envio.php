@@ -11,7 +11,7 @@
     use PHPMailer\PHPMailer\Exception;
 
     $mail = new PHPMailer(true);
-
+    //classe do objeto da mensagem a ser enviada 
     class Mensagem {
 
         private $destino = null;
@@ -33,17 +33,20 @@
 
 }
 $mensagem = new Mensagem();
+//pegando as informações da mensagem pela variavel globla $_POST e mandando pro objeto tratar
 $mensagem->__set('destino',$_POST['destino']);
 $mensagem->__set('assunto',$_POST['assunto']);
 $mensagem->__set('mensagem',$_POST['mensagem']);
+
 if(!$mensagem->mensagemValida()){
     echo 'algo de errado, preencha os dados e tente novamante';   
     die();
 }
 
 $mail = new PHPMailer(true);
+
 try {
-    //Server settings
+    //Server settings / consigurações do servidor de email
     $mail->SMTPDebug = 2;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
@@ -75,7 +78,7 @@ try {
     echo 'Message has been sent';
 } catch (Exception $e) {
     echo 'Não foi possivel enviar o E-mail tente novamnete mais tarde'.'<br>';
-    echo 'Detalhes do erro' . $mail->ErrorInfo;
+    echo 'Detalhes do erro: ' . $mail->ErrorInfo;
 }
 
 
